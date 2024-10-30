@@ -1,5 +1,7 @@
 from flask import Flask, request, session, flash, redirect, render_template, url_for
 from dotenv import load_dotenv
+import psycopg2.extras
+import psycopg2
 import hashlib
 import sqlite3
 import os
@@ -12,13 +14,28 @@ app = Flask(__name__)
 # Set secret key from environment variable
 app.secret_key = os.getenv("FLASK_SECRET_KEY", "default-secret-key")
 
+# 
+def get_connection():
+    # Connect to PostgreSQL (Adjust connection parameters as needed) relevant 
+    conn = psycopg2.connect(
+        # On Render:
+        dbname="library_class_version_m4n7", # Database
+        user="library_class_version_m4n7_user", #Username
+        password="Cm5Yp036HJQVGdiDA0x9sq3iyAvPBRnO",# Password
+        # External Database URL:
+        # postgresql://library_class_version_m4n7_user:Cm5Yp036HJQVGdiDA0x9sq3iyAvPBRnO@dpg-csgtodggph6c73bseubg-a.frankfurt-postgres.render.com/library_class_version_m4n7
+        host="dpg-csgtodggph6c73bseubg-a.frankfurt-postgres.render.com",  # Or the hostname of your PostgreSQL server
+        port="5432",  # Default port for PostgreSQL
+    )
+    return conn
+
 # List of all books from the DB
 def get_books():
-    conn = sqlite3.connect("library.db")
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
+    conn = get_connection()
+    cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
     cursor.execute("SELECT * FROM Books")
     books = cursor.fetchall()
+    cursor.close()
     conn.close()
     return books
 
@@ -31,8 +48,7 @@ def book_list():
 
 # Get user by username
 def get_user_by_username(username):
-    conn = sqlite3.connect("library.db")
-    conn.row_factory = sqlite3.Row
+    conn = get_connection()
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM Users WHERE Name = ?", (username,))
     user = cursor.fetchone()

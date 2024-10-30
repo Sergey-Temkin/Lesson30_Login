@@ -1,6 +1,6 @@
 # Lesson30_Login(Extension of lesson29)
 
-20.08.2024-47:30
+20.08.2024
 
 ## Flow:
 1.  Create repository in GitHub and clone it to VScode
@@ -11,11 +11,18 @@
 6.  Make sure all code is good and commit it to GitHub
 7.  Go to Render and create a new web service
 8.  Create file .env(Environment Variables) and set a secret key(FLASK_SECRET_KEY = 1234)
-
+9.  Create PostgreSQL on Render
+10. Merge all scripts to postgres to new file (file name).py, create new end point function on app.py for psycopg2.connect,
+    and fill the data of psycopg2.connect on files:( db.py & app.py )
+11. Change all connections code on app.py 
+    conn =sqlite3.connect("library.db") 
+    <--> 
+    conn = get_connection()
+    cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
 ## Commands schema on VScode:
-1.  Plan a basic database schema for a library. Library has books, users. A user can loan a book for 10 days(ChatGPT)
-2.  Please create a python script for SQLite3, That will create this database and enter some rows of data for books, users, and loans(ChatGPT)
+1.  ChatGPT: Plan a basic database schema for a library. Library has books, users. A user can loan a book for 10 days
+2.  ChatGPT: Please create a python script for SQLite3, That will create this database and enter some rows of data for books, users, and loans
 3.  python Data_Base/00_init.py
 4.  python Data_Base/01_script.py
 5.  python Data_Base/02_script.py
@@ -26,8 +33,11 @@
 10. pip install gunicorn 
 11. pip install -r requirements.txt
 12. pip install python-dotenv
-
-python app.py
+    Merge all sprits to postgres:
+13. ChatGPT: Copy and paste:(00_init,01_script,02_script,03_script),Write:Create a script from all this scripts for creating this database on render postgres
+14. pip install psycopg2-binary
+15. python Data_Base/04_postgres_db.py
+16 .python app.py
 
 ## Render:
 Create a new repository in GitHub(Public)
@@ -47,6 +57,17 @@ New-->Web service-->Public Git Repository-->Enter GitHub URL(https://github.com/
 
 After getting on Logs: Your service is live
 Copy URL and print into web browser
+
+## PostgreSQL(On Render)
+New-->PostgreSQL
+1. Name: Library00
+2. Database: ---
+3. User: ---
+4. Region: Frankfurt(EU Central)
+5. PostgreSQL Version: 16
+6. Datadog API Key: ---
+7. For hobby projects: Free
+8. Create Database
 
 ## VScode path
 PC:
