@@ -70,6 +70,7 @@ cursor.executemany(
     """
     INSERT INTO Books (Title, Author, ISBN, PublishedYear, AvailableCopies)
     VALUES (%s, %s, %s, %s, %s)
+    ON CONFLICT (ISBN) DO NOTHING
     """,
     books,
 )
@@ -84,6 +85,7 @@ cursor.executemany(
     """
     INSERT INTO Users (Name, Email, Phone)
     VALUES (%s, %s, %s)
+    ON CONFLICT (Email) DO NOTHING
     """,
     users,
 )

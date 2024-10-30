@@ -37,7 +37,7 @@
 13. ChatGPT: Copy and paste:(00_init,01_script,02_script,03_script),Write:Create a script from all this scripts for creating this database on render postgres
 14. pip install psycopg2-binary
 15. python Data_Base/04_postgres_db.py
-16 .python app.py
+16. python app.py
 
 ## Render:
 Create a new repository in GitHub(Public)
