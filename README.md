@@ -1,6 +1,6 @@
 ## Lesson30_Login(Extension of lesson29)
 
-20.08.2024-
+20.08.2024-47:30
 
 # Flow:
 1.  Create repository in GitHub and clone it to VScode
@@ -18,11 +18,13 @@
 3.  python Data_Base/00_init.py
 4.  python Data_Base/01_script.py
 5.  python Data_Base/02_script.py
-6.  python -m venv venv
-7.  source venv/Scripts/activate
-8.  pip install flask
-9.  pip install gunicorn 
-10. pip install -r requirements.txt
+6.  python Data_Base/03_script.py
+7.  python -m venv venv
+8.  source venv/Scripts/activate
+9.  pip install flask
+10. pip install gunicorn 
+11. pip install -r requirements.txt
+12. python app.py
 
 # Render:
 Create a new repository in GitHub(Public)
@@ -44,13 +46,15 @@ After getting on Logs: Your service is live
 Copy URL and print into web browser
 
 # VScode path
-cd "C:\Users\sergh\OneDrive\Computer_Science/001-Code/001-Jhon-Bryce/000-GitHub/Lesson30_Login"
+PC:
 cd "C:\Users\USER\OneDrive\Computer_Science/001-Code/001-Jhon-Bryce/000-GitHub/Lesson30_Login"
+Laptop:
+cd "C:\Users\sergh\OneDrive\Computer_Science/001-Code/001-Jhon-Bryce/000-GitHub/Lesson30_Login"
 
 # Render
 https://github.com/Sergey-Temkin/Lesson30_Login.git
 
-
+# GIT
 git add . 
 git status 
 git commit -m " " 
@@ -69,8 +73,6 @@ deactivate
 
 pip freeze > requirements.txt 
 pip install -r requirements.txt
-
-python app.py
 
 http://127.0.0.1:500
 http://127.0.0.1:5500 
