@@ -1,8 +1,8 @@
-## Lesson30_Login(Extension of lesson29)
+# Lesson30_Login(Extension of lesson29)
 
 20.08.2024-47:30
 
-# Flow:
+## Flow:
 1.  Create repository in GitHub and clone it to VScode
 2.  Install all scripts(venv,flask,gunicorn,requirements.txt)
 3.  Ask ChatGPT what is the best way to create DB
@@ -10,9 +10,10 @@
 5.  Make all the packages(folder) and modules(file) and templates
 6.  Make sure all code is good and commit it to GitHub
 7.  Go to Render and create a new web service
+8.  Create file .env(Environment Variables) and set a secret key(FLASK_SECRET_KEY = 1234)
 
 
-# Commands schema on VScode:
+## Commands schema on VScode:
 1.  Plan a basic database schema for a library. Library has books, users. A user can loan a book for 10 days(ChatGPT)
 2.  Please create a python script for SQLite3, That will create this database and enter some rows of data for books, users, and loans(ChatGPT)
 3.  python Data_Base/00_init.py
@@ -24,9 +25,11 @@
 9.  pip install flask
 10. pip install gunicorn 
 11. pip install -r requirements.txt
-12. python app.py
+12. pip install python-dotenv
 
-# Render:
+python app.py
+
+## Render:
 Create a new repository in GitHub(Public)
 Go to Render
 New-->Web service-->Public Git Repository-->Enter GitHub URL(https://github.com/Sergey-Temkin/Lesson00.git)-->Connect
@@ -45,16 +48,16 @@ New-->Web service-->Public Git Repository-->Enter GitHub URL(https://github.com/
 After getting on Logs: Your service is live
 Copy URL and print into web browser
 
-# VScode path
+## VScode path
 PC:
 cd "C:\Users\USER\OneDrive\Computer_Science/001-Code/001-Jhon-Bryce/000-GitHub/Lesson30_Login"
 Laptop:
 cd "C:\Users\sergh\OneDrive\Computer_Science/001-Code/001-Jhon-Bryce/000-GitHub/Lesson30_Login"
 
-# Render
+## Render
 https://github.com/Sergey-Temkin/Lesson30_Login.git
 
-# GIT
+## GIT
 git add . 
 git status 
 git commit -m " " 
